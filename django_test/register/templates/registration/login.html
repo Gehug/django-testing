@@ -1,0 +1,24 @@
+
+{% extends "movies/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+
+<h1>Review making</h1>
+
+
+<form method="POST" style="padding: 5% 2% 5% 2%;">
+    {% csrf_token %}
+    {{ form | crispy }}
+
+
+
+<p>No account yet? Create one <a href="/register/create-account">here</a></p>
+<input class="btn btn-success" type="submit" value="submit"/>
+
+</form>
+
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "movies/base.html" %}
+{% block content %}
+
+{% for movie in all_movies %}
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+
+    <div class="col">
+      <div class="card">
+        <img src="{{ movie.picture.url }}" class="card-img-top" alt="{{ movie.name }} movie covor">
+        <div class="card-body">
+          <h5 class="card-title">{{ movie.name }} </h5>
+          <div class="card-text">
+
+          
+
+            <ul class="list-group">
+            {% for rev in movie.review_set.all %}
+                <li class="list-group-item"> {{ rev.review }}: <strong>{{ rev.username }}</strong> </li>
+            {% endfor %}
+              </ul>
+{% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+{% endblock %}
